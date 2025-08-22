@@ -33,7 +33,7 @@ class YoloLoss(nn.Module):
         iou_b1 = intersection_over_union(
             preds[..., 21:25], target[..., 21:25]
         )  # (batch, S, S)
-        iou_b2 = intersection_over_union(preds[..., 26:30], target[..., 21:25])  #
+        iou_b2 = intersection_over_union(preds[..., 26:30], target[..., 21:25])  # (batch, S, S)
 
         ious = torch.cat(
             [iou_b1.unsqueeze(0), iou_b2.unsqueeze(0)], dim=0
